@@ -18,3 +18,12 @@ That returns food name and database noumber'ndbno'.Only the ndbno is useful for 
 The target json data you should store in mongodb
 
 For more USDA API please check https://ndb.nal.usda.gov/ndb/api/doc!
+
+
+##How to use
+
+import pandas as pd
+import json
+df = pd.DataFrame()
+for line in open('usda.json','r'):
+	df = df.append(pd.read_json(line)['report']['food'],ignore_index=True)
